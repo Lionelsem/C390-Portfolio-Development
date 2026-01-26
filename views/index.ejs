@@ -2,195 +2,290 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Lionel Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
     <link rel="stylesheet" href="/css/style.css" />
-    <script defer src="/js/main.js"></script>
+    <script src="/js/main.js" defer></script>
   </head>
-  <body>
-    <!-- ================= HEADER / NAVBAR ================= -->
+
+  <body class="is-loading">
+    <div class="page-loader" id="pageLoader" role="status" aria-live="polite" aria-label="Loading">
+      <div class="page-loader-content">
+        <img src="/img/Logo.png" alt="Loading logo" class="page-loader-logo" />
+        <div class="page-loader-bar" aria-hidden="true"></div>
+      </div>
+    </div>
+    <!-- HEADER -->
     <header class="site-header">
       <div class="header-inner">
-        <div class="logo">Lionel Portfolio</div>
+        <div class="logo">
+          <a href="#home" aria-label="Go to home">
+            <img src="/img/Logo.png" alt="Logo" class="logo-img" />
+          </a>
+        </div>
+
         <nav class="main-nav">
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
+
+          <a href="/certificates">Certificates</a>
+          <a href="/pdf/Lionel-Resume..docx" download>Resume</a>
         </nav>
       </div>
     </header>
 
-    <!-- ================= HOME / HERO ================= -->
-    <section id="home" class="section hero-section">
-      <div class="hero-bg"></div>
-
+    <!-- HERO -->
+    <section id="home" class="hero-section">
       <div class="container hero-content">
         <div class="hero-text">
           <p class="hero-intro">Hi, I’m Lionel</p>
+
           <h1>
-            Creative Designer &amp;<br />
+            Creative Designer & <br />
             Developer
           </h1>
+
+          <p class="hero-tagline">Designing elegant interfaces with modern, luxury detail.</p>
+
           <p class="hero-sub">
             I design, build, and polish digital experiences that feel modern,
             intuitive, and visually engaging.
           </p>
+          <div class="hero-cta">
+            <button class="btn primary-btn" onclick="scrollToSection('about')">
+              View About Me
+            </button>
 
-          <button class="btn primary-btn" onclick="scrollToSection('about')">
-            View About Me
-          </button>
+            <a class="btn outline-btn" href="/pdf/Lionel-Resume..docx" download>
+              Resume
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <p class="stat-value"><span>4</span></p>
+              <p class="stat-label">Certificates</p>
+            </div>
+            <div class="stat">
+              <p class="stat-value"><span id="projectCount">0</span></p>
+              <p class="stat-label">Projects</p>
+            </div>
+            <div class="stat">
+              <p class="stat-value"><span>2</span></p>
+              <p class="stat-label">Years</p>
+            </div>
+          </div>
         </div>
 
         <div class="hero-image">
-          <!-- Put your own hero image here -->
-          <img src="/img/hero-image.jpg" alt="Lionel by the bridge" />
+          <div class="hero-image-card">
+            <img src="/img/Lionel.jpg" alt="Lionel portrait" />
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= ABOUT ================= -->
+    <div class="section-divider">
+      <span class="divider-line"></span>
+      <span class="divider-dot"></span>
+      <span class="divider-line"></span>
+    </div>
+
+    <!-- ABOUT -->
     <section id="about" class="section about-section swirl-bg">
       <div class="container">
-        <h2 class="section-title">About me</h2>
+        <div class="about-header">
+          <h2 class="about-title">About me</h2>
+          <p class="about-caption">
+            Hi, I am Lionel Sem and I am 21 years old this year.
+          </p>
+        </div>
 
-        <div class="about-content">
+        <div class="about-layout">
           <div class="about-image">
-            <!-- Round profile image -->
-            <img src="/img/about-photo.jpg" alt="Lionel profile" />
+            <img src="/img/Lionel.jpg" alt="Lionel" />
           </div>
 
           <div class="about-text">
-            <p class="about-greeting">
-              Hi, I’m Lionel Sem and I am 20 years old this year.
-            </p>
             <p>
-              I am a web developer with a passion for crafting engaging
-              websites and applications. With expertise in HTML, CSS,
-              JavaScript, and Python, I specialise in creating seamless user
-              experiences and visually appealing designs.
+              I am a web developer with a passion for creating amazing website
+              and application. With expertise in HTML, CSS, JavaScript, and
+              Python. I specialize in crafting seamless user experiences and
+              visually appealing designs.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= PROJECT ================= -->
-    <section id="projects" class="section project-section swirl-bg">
+    <div class="section-divider">
+      <span class="divider-line"></span>
+      <span class="divider-dot"></span>
+      <span class="divider-line"></span>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services" class="section services-section">
       <div class="container">
-        <h2 class="section-title">Project</h2>
+        <h2 class="section-title">Services</h2>
+        <p class="section-subtitle">Luxury-focused digital design with clean execution.</p>
 
-        <div class="project-layout">
-          <div class="project-details">
-            <div class="project-row">
-              <span class="project-label">Project Name:</span>
-              <span class="project-value">C390 Portfolio Development</span>
+        <div class="services-grid">
+          <article class="service-card">
+            <h3><span class="service-emoji">✨</span> UI / UX Design</h3>
+            <p>Elegant interfaces, smooth flows, and polished interaction details.</p>
+          </article>
+          <article class="service-card">
+            <h3><span class="service-emoji">🛠️</span> Web Development</h3>
+            <p>Responsive, modern sites built with clean structure and performance.</p>
+          </article>
+          <article class="service-card">
+            <h3><span class="service-emoji">🎨</span> Branding Touch</h3>
+            <p>Visual direction, typography, and style to elevate your product.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider">
+      <span class="divider-line"></span>
+      <span class="divider-dot"></span>
+      <span class="divider-line"></span>
+    </div>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section project-section">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="projects-carousel">
+          <button class="proj-arrow" id="projPrev" type="button" aria-label="Previous project">
+            &#8592;
+          </button>
+
+          <div class="proj-card">
+            <div class="proj-image-wrap">
+              <img id="projectImage" src="/img/project-1.jpg" alt="Project preview" />
+              <button class="proj-more" id="projectMoreBtn" type="button">
+                Click more
+              </button>
             </div>
 
-            <div class="project-row">
-              <span class="project-label">Project Date:</span>
-              <span class="project-value">December 2025</span>
-            </div>
+            <div class="proj-info">
+              <h3 class="proj-title" id="projectTitle">Portfolio Website</h3>
 
-            <div class="project-row">
-              <span class="project-label">Difficulties:</span>
-              <span class="project-value">
-                Balancing responsive layout, smooth section flow, and matching
-                my Figma design in code.
-              </span>
-            </div>
+              <div class="proj-meta">
+                <div class="proj-row">
+                  <span class="proj-label">Stack</span>
+                  <span class="proj-value" id="projectStack">Node / Express / EJS</span>
+                </div>
 
-            <div class="project-row">
-              <span class="project-label">Features:</span>
-              <span class="project-value">
-                Single-page layout with smooth scrolling, custom section
-                backgrounds, and a contact form card.
-              </span>
+                <div class="proj-row">
+                  <span class="proj-label">Focus</span>
+                  <span class="proj-value" id="projectFocus">UI, layout, interaction</span>
+                </div>
+              </div>
+
+              <p class="proj-desc" id="projectDesc">
+                A clean portfolio website with modern layout and sections.
+              </p>
+
+              <div class="proj-actions">
+                <a class="btn primary-btn" id="projectLink" href="#" target="_blank" rel="noopener">
+                  Open Project
+                </a>
+              </div>
             </div>
           </div>
 
-          <!-- Simple timeline / slider circle like your design -->
-          <div class="project-progress">
-            <div class="progress-line"></div>
-            <div class="progress-dot"></div>
+          <button class="proj-arrow" id="projNext" type="button" aria-label="Next project">
+            &#8594;
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="proj-modal" id="projectModal" aria-hidden="true">
+        <div class="proj-modal-backdrop" data-close-modal></div>
+
+        <div class="proj-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="projModalTitle">
+          <button class="proj-modal-close" type="button" data-close-modal aria-label="Close">
+            &#10005;
+          </button>
+
+          <h3 class="proj-modal-title" id="projModalTitle">Project title</h3>
+          <p class="proj-modal-body" id="projModalBody">Project details...</p>
+
+          <div class="proj-modal-actions">
+            <a class="btn primary-btn" id="projModalLink" href="#" target="_blank" rel="noopener">
+              Open Project
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= CONTACT ================= -->
-    <section id="contact" class="section contact-section swirl-bg">
+    <div class="section-divider">
+      <span class="divider-line"></span>
+      <span class="divider-dot"></span>
+      <span class="divider-line"></span>
+    </div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
       <div class="container">
-        <h2 class="section-title">Contact me</h2>
-
-        <div class="contact-layout">
-          <!-- Left: form -->
-          <form class="contact-form">
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <div class="contact-layout unified-contact">
+        <div class="contact-panel">
+          <form class="contact-form" onsubmit="return false;">
             <div class="form-group">
-              <label for="fullName">Full Name</label>
-              <input
-                type="text"
-                id="fullName"
-                name="fullName"
-                placeholder="Enter your full name"
-              />
+              <label>Name</label>
+              <input type="text" placeholder="Your name" />
             </div>
 
             <div class="form-group">
-              <label for="email">Email Address</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter your email"
-              />
+              <label>Email</label>
+              <input type="email" placeholder="Your email" />
             </div>
 
             <div class="form-group">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                placeholder="Write your message here"
-              ></textarea>
+              <label>Message</label>
+              <textarea rows="6" placeholder="Your message"></textarea>
             </div>
 
-            <button type="submit" class="btn secondary-btn">Submit</button>
+            <button class="btn primary-btn" type="button">Send</button>
           </form>
-
-          <!-- Right: contact card -->
-          <div class="contact-card">
-            <div class="contact-card-inner">
-              <h3>Contact</h3>
-              <ul class="contact-list">
-                <li>
-                  <span class="contact-label">Email</span>
-                  <span class="contact-value">20xxxxxx@myrp.edu.sg</span>
-                </li>
-                <li>
-                  <span class="contact-label">Phone</span>
-                  <span class="contact-value">+65 9xxx xxxx</span>
-                </li>
-                <li>
-                  <span class="contact-label">Location</span>
-                  <span class="contact-value">Singapore</span>
-                </li>
-                <li>
-                  <span class="contact-label">Status</span>
-                  <span class="contact-value">Open to opportunities</span>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
+
+        <!-- Right: details -->
+        <aside class="contact-panel contact-details">
+          <h3>Details</h3>
+
+          <div class="detail-block">
+            <p class="detail-label">Email</p>
+            <p class="detail-value">24045619@myrp.edu.sg</p>
+          </div>
+
+          <div class="detail-block">
+            <p class="detail-label">Location</p>
+            <p class="detail-value">Singapore</p>
+          </div>
+
+          <a class="btn outline-btn contact-resume" href="/pdf/Lionel-Resume..docx" download>
+            View Resume
+          </a>
+        </aside>
       </div>
     </section>
 
-    <!-- ================= FOOTER (optional) ================= -->
+
+    <!-- FOOTER -->
     <footer class="site-footer">
       <div class="container">
-        <p>&copy; <span id="year"></span> Lionel Portfolio. All rights reserved.</p>
+        <p>© <%= new Date().getFullYear() %> Lionel</p>
       </div>
     </footer>
   </body>
