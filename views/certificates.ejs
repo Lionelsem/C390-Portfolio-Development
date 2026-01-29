@@ -5,8 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/certificates.js" defer></script>
   </head>
   <body>
+    <%
+      // Simple data at the top like a tiny React component.
+      const navLinks = [
+        { label: "Home", href: "/" },
+        { label: "Certificates", href: "/certificates", current: true }
+      ];
+
+      const filters = [
+        { label: "All", value: "all" },
+        { label: "HackerRank", value: "hackerrank" },
+        { label: "LinkedIn Learning", value: "linkedin-learning" }
+      ];
+    %>
+
     <header class="site-header">
       <div class="header-inner">
         <div class="logo">
@@ -16,9 +31,11 @@
         </div>
 
         <nav class="main-nav">
-          <a href="/">Home</a>
-          <a href="/certificates" aria-current="page">Certificates</a>
-          <a href="/pdf/Lionel-Resume..docx" download>Resume</a>
+          <% navLinks.forEach((link) => { %>
+            <a href="<%= link.href %>" <%= link.current ? "aria-current=\"page\"" : "" %> <%= link.download ? "download" : "" %>>
+              <%= link.label %>
+            </a>
+          <% }) %>
         </nav>
       </div>
     </header>
@@ -26,12 +43,26 @@
     <section class="section">
       <div class="container">
         <h1 class="section-title">HackerRank Certificates</h1>
+        <p class="section-subtitle">Filter by issuer to find certificates faster.</p>
+
+        <div class="cert-filters" id="certFilters" role="tablist" aria-label="Certificate filters">
+          <% filters.forEach((filter, index) => { %>
+            <button
+              class="project-filter-btn <%= index === 0 ? "is-active" : "" %>"
+              type="button"
+              data-filter="<%= filter.value %>"
+              role="tab"
+              aria-selected="<%= index === 0 ? "true" : "false" %>">
+              <%= filter.label %>
+            </button>
+          <% }) %>
+        </div>
 
         <div class="cert-grid">
           <% certificates.forEach((cert) => { 
             const fileUrl = "/pdf/" + encodeURIComponent(cert.file);
           %>
-            <article class="cert-card">
+            <article class="cert-card" data-issuer="<%= cert.issuer %>">
               <div class="cert-preview">
                 <iframe
                   src="<%= fileUrl %>#page=1&view=FitH"
@@ -42,7 +73,7 @@
 
               <div class="cert-body">
                 <h2 class="cert-title"><%= cert.title %></h2>
-                <p class="cert-meta"><%= cert.issuer %> · <%= cert.date %></p>
+                <p class="cert-meta"><%= cert.issuer %> - <%= cert.date %></p>
 
                 <div class="cert-actions">
                   <a class="btn outline-btn" href="<%= fileUrl %>" target="_blank" rel="noopener">
@@ -51,9 +82,11 @@
                   <a class="btn outline-btn" href="<%= fileUrl %>" download>
                     Download
                   </a>
-                  <a class="btn primary-btn" href="<%= cert.link %>" target="_blank" rel="noopener">
-                    HackerRank URL
-                  </a>
+                  <% if (cert.link) { %>
+                    <a class="btn primary-btn" href="<%= cert.link %>" target="_blank" rel="noopener">
+                      View Certificate
+                    </a>
+                  <% } %>
                 </div>
               </div>
             </article>

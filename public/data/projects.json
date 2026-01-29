@@ -1,0 +1,109 @@
+[
+  {
+    "title": "Guess The Country Capital",
+    "categories": ["Mobile Development"],
+    "stack": "React / Expo / JavaScript / Picker DropDown / React Hooks",
+    "focus": "Mobile interface",
+    "desc": "A quiz app to test knowledge of world capitals.",
+    "more": "Mobile-first quiz flow with quick feedback and clean UI.",
+    "writeup": [
+      "Concept: A fast, playful trivia experience for short sessions.",
+      "Planning: Mapped the question flow, states, and UI hierarchy for small screens.",
+      "Development: Built reusable question components and state logic with hooks."
+    ],
+    "image": "/img/GuessTheCountry.png",
+    "fit": "contain",
+    "link": "https://github.com/Lionelsem/c346-lesson08-Lionelsem-v3"
+  },
+  {
+    "title": "Sustainable Clothing Website",
+    "categories": ["Design"],
+    "stack": "Figma",
+    "focus": "User flow and wireframes",
+    "desc": "A website promoting sustainable clothing choices.",
+    "more": "Wireframes and user flows for a sustainability-driven brand.",
+    "writeup": [
+      "Concept: A brand that promotes sustainable fashion choices.",
+      "Planning: Mapped user journeys and key screens (home, explore, saved, planner).",
+      "Development: Produced wireframes with eco-impact messaging and trust cues."
+    ],
+    "image": "/img/SustainabilityClothingWebsite.png",
+    "link": "https://www.figma.com/design/wDS3rS6v826ypmqdC4c6cQ/CA1?node-id=0-1&t=hDusctz4T95YtI1H-1"
+  },
+  {
+    "title": "Hawker Hero",
+    "categories": ["Web Development"],
+    "stack": "Java / EJS",
+    "focus": "Branding and e-commerce UI",
+    "desc": "A recommendation and rating platform for local food stalls.",
+    "more": "Brand-led UI with product listing, filtering, and checkout flow.",
+    "writeup": [
+      "Concept: A local hawker discovery and rating platform.",
+      "Planning: Defined user flows for browse, filter, and checkout.",
+      "Development: Implemented menu-first UI with reviews and ratings."
+    ],
+    "image": "/img/Hawker.png",
+    "link": "https://github.com/teaonrocks/hawker-hero"
+  },
+  {
+    "title": "Escape Room",
+    "categories": ["Game Development"],
+    "stack": "Unity / C#",
+    "focus": "VR Game Design",
+    "desc": "A virtual reality escape room game.",
+    "more": "Immersive VR puzzles with guided storytelling.",
+    "writeup": [
+      "Concept: A narrative-led VR escape experience.",
+      "Planning: Sketched puzzle pacing, player guidance, and environment cues.",
+      "Development: Implemented interactive puzzles and onboarding balance."
+    ],
+    "image": "/img/EscapeRoom.png"
+  },
+  {
+    "title": "FoodWaste Tracker",
+    "categories": ["Mobile Development", "Web Development"],
+    "stack": "Java / Express / React",
+    "focus": "Full-stack development mobile app",
+    "desc": "An app to track and reduce food waste.",
+    "more": "Team-built app with dashboards and waste tracking.",
+    "writeup": [
+      "Concept: A tool to reduce household food waste.",
+      "Planning: Defined data capture, dashboard needs, and team roles.",
+      "Development: Built full-stack flows with charts and tracking."
+    ],
+    "image": "/img/FoodWaste.png",
+    "link": "https://github.com/C346-AY2025-002/c346-ca2-ca2_team9",
+    "fit": "contain"
+  },
+  {
+    "title": "Learn@RP",
+    "categories": ["Design"],
+    "stack": "Figma",
+    "focus": "UI/UX Design",
+    "desc": "A redesign of the Learn@RP platform for better user experience.",
+    "more": "Redesigned navigation and clarity for core learning tasks.",
+    "writeup": [
+      "Concept: A clearer, calmer Learn@RP experience for students.",
+      "Planning: Audited pain points and redesigned navigation structure.",
+      "Development: Produced UI screens with improved hierarchy and spacing."
+    ],
+    "image": "/img/Learn@RP.png",
+    "link": "https://www.figma.com/design/r94pEDlWEu3tiGDRiGIxCO/CA2?node-id=15-12&t=Nd4d3ByTEjrHtgcB-1"
+  },
+  {
+    "title": "Income Expense Tracker",
+    "categories": ["Mobile Development"],
+    "stack": "React Native / Expo / JavaScript",
+    "focus": "Mobile App Development",
+    "desc": "An app to track personal income and expenses.",
+    "more": "Personal finance tracker with clear category breakdowns.",
+    "writeup": [
+      "Concept: A lightweight tracker for daily income and expenses.",
+      "Planning: Mapped quick-entry flow and category breakdowns.",
+      "Development: Built the UI with minimal steps and clear summaries."
+    ],
+    "image": "/img/IncomeTracker.png",
+    "link": "https://github.com/C346-AY2025-002/c346-ca1-Lionelsem?tab=readme-ov-file",
+    "fit": "contain"
+  }
+]

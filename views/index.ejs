@@ -9,12 +9,124 @@
   </head>
 
   <body class="is-loading">
+    <%
+      // Beginner-style "React-ish" data lives here (hardcoded on purpose).
+      const navLinks = [
+        { label: "Home", href: "#home" },
+        { label: "About", href: "#about" },
+        { label: "Projects", href: "#projects" },
+        { label: "Contact", href: "#contact" },
+        { label: "Certificates", href: "/certificates" }
+      ];
+
+      const hero = {
+        intro: "Hi, I'm Lionel",
+        titleTop: "Creative Designer",
+        titleBottom: "Developer",
+        tagline: "I try to design clean and modern interfaces.",
+        sub: "I'm still learning, so I keep things simple and hardcoded."
+      };
+
+      const certs = [
+        {
+          title: "CSS (Basic)",
+          issuer: "HackerRank",
+          date: "2026-01-26",
+          file: "css certificate.pdf"
+        },
+        {
+          title: "JavaScript (Basic)",
+          issuer: "HackerRank",
+          date: "2026-01-26",
+          file: "javascript_basic certificate.pdf"
+        },
+        {
+          title: "React (Basic)",
+          issuer: "HackerRank",
+          date: "2026-01-26",
+          file: "react_basic certificate (1).pdf"
+        },
+        {
+          title: "SQL (Basic)",
+          issuer: "HackerRank",
+          date: "2026-01-26",
+          file: "sql_basic certificate.pdf"
+        },
+        {
+          title: "ISTQB Foundation Cert Prep",
+          issuer: "LinkedIn Learning",
+          date: "2025-11-03",
+          file: "CertificateOfCompletion_ISTQB Foundation Cert Prep.pdf"
+        },
+        {
+          title: "Programming Foundations: Software Testing/QA",
+          issuer: "LinkedIn Learning",
+          date: "2025-11-17",
+          file: "CertificateOfCompletion_Programming Foundations Software TestingQA.pdf"
+        },
+        {
+          title: "Software Testing Foundations: Bug Writing and Management",
+          issuer: "LinkedIn Learning",
+          date: "2025-10-31",
+          file: "CertificateOfCompletion_Software Testing Foundations Bug Writing and Management.pdf"
+        },
+        {
+          title: "Software Testing Foundations: Test Planning",
+          issuer: "LinkedIn Learning",
+          date: "2025-11-03",
+          file: "CertificateOfCompletion_Software Testing Foundations Test Planning.pdf"
+        }
+      ];
+
+      const stats = [
+        { value: String(certs.length), label: "Certificates" },
+        { value: String(projectCount || 0), label: "Projects", id: "projectCount" },
+        { value: "2", label: "Years" }
+      ];
+
+      const services = [
+        {
+          title: "UI / UX Design",
+          desc: "Trying to make layouts clean and easy to use."
+        },
+        {
+          title: "Web Development",
+          desc: "Simple responsive pages with HTML, CSS, and JS."
+        },
+        {
+          title: "Branding Touch",
+          desc: "Basic colors, fonts, and small details that fit."
+        }
+      ];
+
+      const socials = [
+        {
+          label: "LinkedIn",
+          href: "https://www.linkedin.com/in/lionel-sem-b76a7a311/",
+          img: "/img/linkedin.png"
+        },
+        {
+          label: "GitHub",
+          href: "https://github.com/Lionelsem",
+          img: "/img/github.png"
+        },
+        {
+          label: "Gmail",
+          href: "mailto:Lionelsemwj@gmail.com",
+          img: "/img/gmail.png"
+        }
+      ];
+
+      const toPdf = (file) => "/pdf/" + encodeURIComponent(file);
+    %>
+
     <div class="page-loader" id="pageLoader" role="status" aria-live="polite" aria-label="Loading">
       <div class="page-loader-content">
         <img src="/img/Logo.png" alt="Loading logo" class="page-loader-logo" />
         <div class="page-loader-bar" aria-hidden="true"></div>
       </div>
     </div>
+
     <!-- HEADER -->
     <header class="site-header">
       <div class="header-inner">
@@ -25,13 +137,11 @@
         </div>
 
         <nav class="main-nav">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-
-          <a href="/certificates">Certificates</a>
-          <a href="/pdf/Lionel-Resume..docx" download>Resume</a>
+          <% navLinks.forEach((link) => { %>
+            <a href="<%= link.href %>" <%= link.download ? "download" : "" %>>
+              <%= link.label %>
+            </a>
+          <% }) %>
         </nav>
       </div>
     </header>
@@ -40,19 +150,16 @@
     <section id="home" class="hero-section">
       <div class="container hero-content">
         <div class="hero-text">
-          <p class="hero-intro">Hi, I’m Lionel</p>
+          <p class="hero-intro"><%= hero.intro %></p>
 
           <h1>
-            Creative Designer & <br />
-            Developer
+            <%= hero.titleTop %> & <br />
+            <%= hero.titleBottom %>
           </h1>
 
-          <p class="hero-tagline">Designing elegant interfaces with modern, luxury detail.</p>
+          <p class="hero-tagline"><%= hero.tagline %></p>
+          <p class="hero-sub"><%= hero.sub %></p>
 
-          <p class="hero-sub">
-            I design, build, and polish digital experiences that feel modern,
-            intuitive, and visually engaging.
-          </p>
           <div class="hero-cta">
             <button class="btn primary-btn" onclick="scrollToSection('about')">
               View About Me
@@ -64,18 +171,14 @@
           </div>
 
           <div class="hero-stats">
-            <div class="stat">
-              <p class="stat-value"><span>4</span></p>
-              <p class="stat-label">Certificates</p>
-            </div>
-            <div class="stat">
-              <p class="stat-value"><span id="projectCount">0</span></p>
-              <p class="stat-label">Projects</p>
-            </div>
-            <div class="stat">
-              <p class="stat-value"><span>2</span></p>
-              <p class="stat-label">Years</p>
-            </div>
+            <% stats.forEach((stat) => { %>
+              <div class="stat">
+                <p class="stat-value">
+                  <span<%= stat.id ? ` id="${stat.id}"` : "" %>><%= stat.value %></span>
+                </p>
+                <p class="stat-label"><%= stat.label %></p>
+              </div>
+            <% }) %>
           </div>
         </div>
 
@@ -110,12 +213,51 @@
 
           <div class="about-text">
             <p>
-              I am a web developer with a passion for creating amazing website
-              and application. With expertise in HTML, CSS, JavaScript, and
-              Python. I specialize in crafting seamless user experiences and
-              visually appealing designs.
+              I am a web developer who is still learning and practicing a lot.
+              I use HTML, CSS, JavaScript, and a bit of Python. I like making
+              clean layouts and simple features that work.
             </p>
           </div>
+        </div>
+
+        <div class="about-certifications">
+          <h3 class="section-title">Certifications</h3>
+          <p class="section-subtitle">Some are shown here and the rest are in the certificates page.</p>
+
+          <div class="cert-carousel" aria-label="Certificates carousel">
+            <button class="cert-nav cert-prev" type="button" aria-label="Previous certificates">
+              &#8249;
+            </button>
+
+            <div class="cert-track" id="certTrack">
+              <% certs.forEach((cert) => { %>
+                <article class="cert-card">
+                  <div class="cert-preview">
+                    <iframe
+                      src="<%= toPdf(cert.file) %>#page=1&view=FitH"
+                      title="<%= cert.title %> preview"
+                      loading="lazy">
+                    </iframe>
+                  </div>
+                  <div class="cert-body">
+                    <h4 class="cert-title"><%= cert.title %></h4>
+                    <p class="cert-meta"><%= cert.issuer %> - <%= cert.date %></p>
+                    <div class="cert-actions">
+                      <a class="btn outline-btn" href="<%= toPdf(cert.file) %>" target="_blank" rel="noopener">
+                        Open PDF
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              <% }) %>
+            </div>
+
+            <button class="cert-nav cert-next" type="button" aria-label="Next certificates">
+              &#8250;
+            </button>
+          </div>
+
+          <a class="btn primary-btn" href="/certificates">View all certificates</a>
         </div>
       </div>
     </section>
@@ -130,21 +272,15 @@
     <section id="services" class="section services-section">
       <div class="container">
         <h2 class="section-title">Services</h2>
-        <p class="section-subtitle">Luxury-focused digital design with clean execution.</p>
+        <p class="section-subtitle">Simple things I can build right now.</p>
 
         <div class="services-grid">
-          <article class="service-card">
-            <h3><span class="service-emoji">✨</span> UI / UX Design</h3>
-            <p>Elegant interfaces, smooth flows, and polished interaction details.</p>
-          </article>
-          <article class="service-card">
-            <h3><span class="service-emoji">🛠️</span> Web Development</h3>
-            <p>Responsive, modern sites built with clean structure and performance.</p>
-          </article>
-          <article class="service-card">
-            <h3><span class="service-emoji">🎨</span> Branding Touch</h3>
-            <p>Visual direction, typography, and style to elevate your product.</p>
-          </article>
+          <% services.forEach((service) => { %>
+            <article class="service-card">
+              <h3><span class="service-emoji">* </span><%= service.title %></h3>
+              <p><%= service.desc %></p>
+            </article>
+          <% }) %>
         </div>
       </div>
     </section>
@@ -159,50 +295,14 @@
     <section id="projects" class="section project-section">
       <div class="container">
         <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">These are my projects (still adding more).</p>
 
-        <div class="projects-carousel">
-          <button class="proj-arrow" id="projPrev" type="button" aria-label="Previous project">
-            &#8592;
-          </button>
+        <div class="project-filters" id="projectFilters" role="tablist" aria-label="Project categories">
+          <!-- Filters injected by JS -->
+        </div>
 
-          <div class="proj-card">
-            <div class="proj-image-wrap">
-              <img id="projectImage" src="/img/project-1.jpg" alt="Project preview" />
-              <button class="proj-more" id="projectMoreBtn" type="button">
-                Click more
-              </button>
-            </div>
-
-            <div class="proj-info">
-              <h3 class="proj-title" id="projectTitle">Portfolio Website</h3>
-
-              <div class="proj-meta">
-                <div class="proj-row">
-                  <span class="proj-label">Stack</span>
-                  <span class="proj-value" id="projectStack">Node / Express / EJS</span>
-                </div>
-
-                <div class="proj-row">
-                  <span class="proj-label">Focus</span>
-                  <span class="proj-value" id="projectFocus">UI, layout, interaction</span>
-                </div>
-              </div>
-
-              <p class="proj-desc" id="projectDesc">
-                A clean portfolio website with modern layout and sections.
-              </p>
-
-              <div class="proj-actions">
-                <a class="btn primary-btn" id="projectLink" href="#" target="_blank" rel="noopener">
-                  Open Project
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <button class="proj-arrow" id="projNext" type="button" aria-label="Next project">
-            &#8594;
-          </button>
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Cards injected by JS -->
         </div>
       </div>
 
@@ -216,7 +316,9 @@
           </button>
 
           <h3 class="proj-modal-title" id="projModalTitle">Project title</h3>
+          <div class="proj-modal-media" id="projModalMedia"></div>
           <p class="proj-modal-body" id="projModalBody">Project details...</p>
+          <div class="proj-modal-writeup" id="projModalWriteup"></div>
 
           <div class="proj-modal-actions">
             <a class="btn primary-btn" id="projModalLink" href="#" target="_blank" rel="noopener">
@@ -260,7 +362,6 @@
           </form>
         </div>
 
-        <!-- Right: details -->
         <aside class="contact-panel contact-details">
           <h3>Details</h3>
 
@@ -274,6 +375,20 @@
             <p class="detail-value">Singapore</p>
           </div>
 
+          <div class="detail-block">
+            <p class="detail-label">Socials</p>
+            <div class="contact-socials">
+              <% socials.forEach((social) => { %>
+                <a class="contact-social-link" href="<%= social.href %>" target="_blank" rel="noopener">
+                  <span class="contact-social-icon" aria-hidden="true">
+                    <img src="<%= social.img %>" alt="" />
+                  </span>
+                  <span><%= social.label %></span>
+                </a>
+              <% }) %>
+            </div>
+          </div>
+
           <a class="btn outline-btn contact-resume" href="/pdf/Lionel-Resume..docx" download>
             View Resume
           </a>
@@ -281,11 +396,10 @@
       </div>
     </section>
 
-
     <!-- FOOTER -->
     <footer class="site-footer">
       <div class="container">
-        <p>© <%= new Date().getFullYear() %> Lionel</p>
+        <p>&copy; <%= new Date().getFullYear() %> Lionel</p>
       </div>
     </footer>
   </body>
