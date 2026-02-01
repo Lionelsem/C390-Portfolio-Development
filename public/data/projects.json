@@ -3,6 +3,7 @@
     "title": "Guess The Country Capital",
     "categories": ["Mobile Development"],
     "stack": "React / Expo / JavaScript / Picker DropDown / React Hooks",
+    "role": "Individual Developer",
     "focus": "Mobile interface",
     "desc": "A quiz app to test knowledge of world capitals.",
     "more": "Mobile-first quiz flow with quick feedback and clean UI.",
@@ -19,6 +20,7 @@
     "title": "Sustainable Clothing Website",
     "categories": ["Design"],
     "stack": "Figma",
+    "role": "Individual Designer",
     "focus": "User flow and wireframes",
     "desc": "A website promoting sustainable clothing choices.",
     "more": "Wireframes and user flows for a sustainability-driven brand.",
@@ -34,6 +36,7 @@
     "title": "Hawker Hero",
     "categories": ["Web Development"],
     "stack": "Java / EJS",
+    "role": "Team frontend developer",
     "focus": "Branding and e-commerce UI",
     "desc": "A recommendation and rating platform for local food stalls.",
     "more": "Brand-led UI with product listing, filtering, and checkout flow.",
@@ -49,6 +52,7 @@
     "title": "Escape Room",
     "categories": ["Game Development"],
     "stack": "Unity / C#",
+    "role": "Individual Game Designer",
     "focus": "VR Game Design",
     "desc": "A virtual reality escape room game.",
     "more": "Immersive VR puzzles with guided storytelling.",
@@ -61,8 +65,9 @@
   },
   {
     "title": "FoodWaste Tracker",
-    "categories": ["Mobile Development", "Web Development"],
+    "categories": ["Mobile Development"],
     "stack": "Java / Express / React",
+    "role": "Team frontend developer",
     "focus": "Full-stack development mobile app",
     "desc": "An app to track and reduce food waste.",
     "more": "Team-built app with dashboards and waste tracking.",
@@ -79,6 +84,7 @@
     "title": "Learn@RP",
     "categories": ["Design"],
     "stack": "Figma",
+    "role": "Individual Designer",
     "focus": "UI/UX Design",
     "desc": "A redesign of the Learn@RP platform for better user experience.",
     "more": "Redesigned navigation and clarity for core learning tasks.",
@@ -94,6 +100,7 @@
     "title": "Income Expense Tracker",
     "categories": ["Mobile Development"],
     "stack": "React Native / Expo / JavaScript",
+    "role": "Team frontend developer",
     "focus": "Mobile App Development",
     "desc": "An app to track personal income and expenses.",
     "more": "Personal finance tracker with clear category breakdowns.",
@@ -104,6 +111,40 @@
     ],
     "image": "/img/IncomeTracker.png",
     "link": "https://github.com/C346-AY2025-002/c346-ca1-Lionelsem?tab=readme-ov-file",
+    "fit": "contain"
+  },
+    {
+    "title": "Study Tracker",
+    "categories": ["Web Development"],
+    "stack": "React Native / JavaScript",
+    "role": "Team frontend developer",
+    "focus": "Web App Development",
+    "desc": "An app to track study sessions and progress.",
+    "more": "Study session tracker with reminders and progress visualization.",
+    "writeup": [
+      "Concept: A lightweight tracker for daily study sessions.",
+      "Planning: Mapped quick-entry flow and category breakdowns.",
+      "Development: Built the UI with minimal steps and clear summaries."
+    ],
+    "image": "/img/StudyTracker.png",
+    "link": "https://github.com/SitiRaudhah123/C219_CA2_Team2",
+    "fit": "contain"
+  },
+      {
+    "title": "SkinCare Routine Tracker",
+    "categories": ["Mobile Development"],
+    "stack": "React Native / JavaScript",
+    "role": "Team frontend developer",
+    "focus": "Mobile App Development",
+    "desc": "An app to track skincare routines and progress.",
+    "more": "Skincare routine tracker with reminders and progress visualization.",
+    "writeup": [
+      "Concept: A lightweight tracker for daily skincare routines.",
+      "Planning: Mapped quick-entry flow and category breakdowns.",
+      "Development: Built the UI with minimal steps and clear summaries."
+    ],
+    "image": "/img/SkinCareTracker.png",
+    "link": "https://github.com/C346-AY2025-002/c346-lesson12-Lionelsem",
     "fit": "contain"
   }
 ]

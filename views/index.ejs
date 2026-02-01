@@ -319,7 +319,6 @@
           <div class="proj-modal-media" id="projModalMedia"></div>
           <p class="proj-modal-body" id="projModalBody">Project details...</p>
           <div class="proj-modal-writeup" id="projModalWriteup"></div>
-
           <div class="proj-modal-actions">
             <a class="btn primary-btn" id="projModalLink" href="#" target="_blank" rel="noopener">
               Open Project
@@ -402,5 +401,31 @@
         <p>&copy; <%= new Date().getFullYear() %> Lionel</p>
       </div>
     </footer>
+
+    <button class="chat-fab" id="chatFab" type="button" aria-label="Open live chat">
+      Chat
+    </button>
+
+    <div class="floating-chat" id="floatingChat" aria-hidden="true">
+      <div class="floating-chat-header">
+        <div>
+          <h4>Live Q&amp;A</h4>
+          <p>Ask me about my work</p>
+        </div>
+        <button class="chat-close" id="chatClose" type="button" aria-label="Close live chat">
+          &#10005;
+        </button>
+      </div>
+      <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+      <form class="chat-input" id="chatForm" autocomplete="off">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Ask a question..."
+          maxlength="120"
+        />
+        <button type="submit">Send</button>
+      </form>
+    </div>
   </body>
 </html>

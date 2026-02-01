@@ -24,6 +24,115 @@ const modalWriteup = document.getElementById("projModalWriteup");
 const modalLink = document.getElementById("projModalLink");
 const projectCountEl = document.getElementById("projectCount");
 
+let chatTimer = null;
+
+const chatFabEl = document.getElementById("chatFab");
+const floatingChatEl = document.getElementById("floatingChat");
+const chatMessagesEl = document.getElementById("chatMessages");
+const chatFormEl = document.getElementById("chatForm");
+const chatInputEl = document.getElementById("chatInput");
+const chatCloseEl = document.getElementById("chatClose");
+
+const chatUsers = [
+  "PixelPilot",
+  "UXSeeker",
+  "CodeTrail",
+  "DesignBreeze",
+  "LayoutLab",
+  "FrontEndFan",
+  "CraftedUI",
+];
+
+const chatQuestions = [
+  "What type of projects are you most proud of?",
+  "Which tools do you use most for your portfolio work?",
+  "How long did it take you to build this portfolio?",
+  "What was the hardest part of creating your portfolio?",
+  "What would you improve next on your portfolio?",
+  "Do you focus more on UI or functionality?",
+  "What inspired your overall design style?",
+  "How do you test your pages before publishing?",
+];
+
+function addChatMessage(username, text, isSelf = false) {
+  if (!chatMessagesEl) return;
+  const msg = document.createElement("div");
+  msg.className = `chat-message${isSelf ? " is-self" : ""}`;
+  msg.innerHTML = `<span class="chat-username">${username}:</span> ${text}`;
+  chatMessagesEl.appendChild(msg);
+  chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+}
+
+function seedChat() {
+  if (!chatMessagesEl) return;
+  chatMessagesEl.innerHTML = "";
+  addChatMessage("Host", "Ask me anything about my portfolio or projects.");
+  addChatMessage("Viewer01", "Your portfolio looks clean and professional.");
+}
+
+function startChat() {
+  if (!chatMessagesEl) return;
+  stopChat();
+  seedChat();
+
+  chatTimer = window.setInterval(() => {
+    const user = chatUsers[Math.floor(Math.random() * chatUsers.length)];
+    const template = chatQuestions[Math.floor(Math.random() * chatQuestions.length)];
+    addChatMessage(user, template);
+  }, 1700);
+}
+
+function stopChat() {
+  if (chatTimer) {
+    window.clearInterval(chatTimer);
+    chatTimer = null;
+  }
+}
+
+if (chatFormEl) {
+  chatFormEl.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!chatInputEl) return;
+    const text = chatInputEl.value.trim();
+    if (!text) return;
+    addChatMessage("You", text, true);
+    chatInputEl.value = "";
+  });
+}
+
+function openChat() {
+  if (!floatingChatEl) return;
+  floatingChatEl.classList.add("is-open");
+  floatingChatEl.setAttribute("aria-hidden", "false");
+  startChat();
+  if (chatInputEl) chatInputEl.focus();
+}
+
+function closeChat() {
+  if (!floatingChatEl) return;
+  floatingChatEl.classList.remove("is-open");
+  floatingChatEl.setAttribute("aria-hidden", "true");
+  stopChat();
+  if (chatMessagesEl) chatMessagesEl.innerHTML = "";
+  if (chatInputEl) chatInputEl.value = "";
+}
+
+if (chatFabEl) {
+  chatFabEl.addEventListener("click", () => {
+    if (!floatingChatEl) return;
+    const isOpen = floatingChatEl.classList.contains("is-open");
+    if (isOpen) {
+      closeChat();
+    } else {
+      openChat();
+    }
+  });
+}
+
+if (chatCloseEl) {
+  chatCloseEl.addEventListener("click", closeChat);
+}
+
 function getAllCategories() {
   const set = new Set();
   projects.forEach((p) => {
@@ -63,7 +172,23 @@ function renderProjects() {
     return (p.categories || []).includes(activeCategory);
   });
 
-  filtered.forEach((p) => {
+  const limited =
+    activeCategory === "All"
+      ? (() => {
+          const seen = new Set();
+          const picked = [];
+          filtered.forEach((p) => {
+            const categories = p.categories || [];
+            const firstNew = categories.find((cat) => !seen.has(cat));
+            if (!firstNew) return;
+            seen.add(firstNew);
+            picked.push(p);
+          });
+          return picked.slice(0, 4);
+        })()
+      : filtered;
+
+  limited.forEach((p) => {
     const card = document.createElement("article");
     card.className = "project-card";
 
@@ -89,6 +214,10 @@ function renderProjects() {
           <div class="project-card-row">
             <span class="proj-label">Stack</span>
             <span class="proj-value">${p.stack}</span>
+          </div>
+          <div class="project-card-row">
+            <span class="proj-label">Role</span>
+            <span class="proj-value">${p.role || "Contributor"}</span>
           </div>
           <div class="project-card-row">
             <span class="proj-label">Focus</span>
