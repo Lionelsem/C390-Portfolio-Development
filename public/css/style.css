@@ -677,6 +677,125 @@ body.is-loading {
   font-size: 0.9rem;
 }
 
+/* Project detail page */
+.project-detail-section {
+  padding-top: 120px;
+}
+
+.project-detail-back {
+  margin-bottom: 24px;
+}
+
+.project-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.project-detail-media {
+  border-radius: 26px;
+  overflow: hidden;
+  background: #f1f1f1;
+  box-shadow: var(--shadow-soft);
+}
+
+.project-detail-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+.project-detail-media img.fit-contain {
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.project-detail-title {
+  margin: 0 0 10px 0;
+  font-size: 2rem;
+}
+
+.project-detail-desc {
+  margin: 0 0 16px 0;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.project-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.project-detail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.project-detail-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+  font-size: 0.98rem;
+}
+
+.project-detail-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.project-detail-video {
+  margin-top: 28px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #f1f1f1;
+  box-shadow: var(--shadow-soft);
+  aspect-ratio: 16 / 9;
+}
+
+.project-detail-video iframe,
+.project-detail-video video {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.project-detail-writeup {
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+.project-detail-writeup h2 {
+  margin-top: 0;
+}
+
+.project-detail-writeup ul {
+  margin: 0 0 0 18px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 980px) {
+  .project-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-section {
+    padding-top: 100px;
+  }
+}
+
 /* Modal */
 .proj-modal {
   position: fixed;
@@ -1479,5 +1598,113 @@ body.is-loading {
 
   .hero-text h1 {
     font-size: 2.4rem;
+  }
+}
+
+
+/* Floating WhatsApp */
+.floating-wpp {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9999;
+  font-family: inherit;
+}
+
+.floating-wpp .floating-wpp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+}
+
+.floating-wpp .floating-wpp-button svg {
+  width: 60%;
+  height: 60%;
+}
+
+.floating-wpp .floating-wpp-popup {
+  position: absolute;
+  bottom: 90px;
+  left: 0;
+  width: 260px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.floating-wpp .floating-wpp-popup.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.floating-wpp-head {
+  color: #fff;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.floating-wpp-head .close {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.floating-wpp-message {
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eee;
+}
+
+.floating-wpp-input-message {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 10px;
+}
+
+.floating-wpp-input-message textarea {
+  width: 100%;
+  min-height: 70px;
+  resize: none;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  font-family: inherit;
+}
+
+.floating-wpp-btn-send {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.floating-wpp-btn-send svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 720px) {
+  .floating-wpp {
+    left: 16px;
+    bottom: 16px;
+  }
+
+  .floating-wpp .floating-wpp-popup {
+    width: 220px;
   }
 }

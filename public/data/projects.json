@@ -1,7 +1,10 @@
 [
   {
     "title": "Guess The Country Capital",
-    "categories": ["Mobile Development"],
+    "slug": "guess-the-country-capital",
+    "categories": [
+      "Mobile Development"
+    ],
     "stack": "React / Expo / JavaScript / Picker DropDown / React Hooks",
     "role": "Individual Developer",
     "focus": "Mobile interface",
@@ -18,7 +21,10 @@
   },
   {
     "title": "Sustainable Clothing Website",
-    "categories": ["Design"],
+    "slug": "sustainable-clothing-website",
+    "categories": [
+      "Design"
+    ],
     "stack": "Figma",
     "role": "Individual Designer",
     "focus": "User flow and wireframes",
@@ -34,7 +40,10 @@
   },
   {
     "title": "Hawker Hero",
-    "categories": ["Web Development"],
+    "slug": "hawker-hero",
+    "categories": [
+      "Web Development"
+    ],
     "stack": "Java / EJS",
     "role": "Team frontend developer",
     "focus": "Branding and e-commerce UI",
@@ -50,31 +59,37 @@
   },
   {
     "title": "Escape Room",
-    "categories": ["Game Development"],
+    "slug": "escape-room",
+    "categories": [
+      "Game Development"
+    ],
     "stack": "Unity / C#",
     "role": "Individual Game Designer",
     "focus": "VR Game Design",
     "desc": "A virtual reality escape room game.",
     "more": "Immersive VR puzzles with guided storytelling.",
     "writeup": [
-      "Concept: A narrative-led VR escape experience.",
-      "Planning: Sketched puzzle pacing, player guidance, and environment cues.",
-      "Development: Implemented interactive puzzles and onboarding balance."
+      "Concept: A narrative-led VR escape experience designed to immerse players through story-driven exploration and puzzle solving.",
+      "Planning: Sketched puzzle pacing and difficulty progression, planned player guidance (visual cues, lighting, signage), and mapped the environment layout to lead players naturally without excessive instructions.",
+      "Development: Built the experience in Unity and coded interactions using C#. Implemented interactive puzzles (object pickup/use, triggers, and condition checks) and refined onboarding so players learn controls smoothly while keeping the challenge engaging."
     ],
     "image": "/img/EscapeRoom.png"
   },
   {
     "title": "FoodWaste Tracker",
-    "categories": ["Mobile Development"],
+    "slug": "foodwaste-tracker",
+    "categories": [
+      "Mobile Development"
+    ],
     "stack": "Java / Express / React",
     "role": "Team frontend developer",
     "focus": "Full-stack development mobile app",
     "desc": "An app to track and reduce food waste.",
     "more": "Team-built app with dashboards and waste tracking.",
     "writeup": [
-      "Concept: A tool to reduce household food waste.",
-      "Planning: Defined data capture, dashboard needs, and team roles.",
-      "Development: Built full-stack flows with charts and tracking."
+      "Concept: Built a food waste tracking solution to help households log food usage and reduce unnecessary disposal through better visibility and habits.",
+      "Planning: Designed the data model and endpoints needed for tracking (create/read/update/delete food records), identified dashboard and chart requirements, and coordinated tasks within the team.",
+      "Development: Developed mobile application features using a REST API to handle CRUD operations. Implemented API integration (GET/POST/PUT/DELETE), updated UI state based on server responses, and visualised trends through charts and tracking summaries."
     ],
     "image": "/img/FoodWaste.png",
     "link": "https://github.com/C346-AY2025-002/c346-ca2-ca2_team9",
@@ -82,69 +97,105 @@
   },
   {
     "title": "Learn@RP",
-    "categories": ["Design"],
+    "slug": "learn-rp",
+    "categories": [
+      "Design"
+    ],
     "stack": "Figma",
     "role": "Individual Designer",
     "focus": "UI/UX Design",
     "desc": "A redesign of the Learn@RP platform for better user experience.",
     "more": "Redesigned navigation and clarity for core learning tasks.",
     "writeup": [
-      "Concept: A clearer, calmer Learn@RP experience for students.",
-      "Planning: Audited pain points and redesigned navigation structure.",
-      "Development: Produced UI screens with improved hierarchy and spacing."
+      "Concept: A refreshed Learn@RP interface focused on clarity, calm visuals, and faster navigation for students, with a clean dashboard-first experience.",
+      "Planning: Identified usability issues such as cluttered content, unclear priorities, and inconsistent navigation. Restructured the menu and page hierarchy, and planned a reusable layout system (cards, headers, buttons) so key actions are always easy to find.",
+      "Development: Built the UI in Figma using Auto Layout and reusable components to keep spacing, alignment, and sizing consistent across screens. Used a calm green-based colour system (primary green for CTAs, progress, and highlights; deeper green for navigation areas) paired with soft neutrals for forms and cards to improve readability and reduce visual stress. Added clear hierarchy through typography, rounded card sections, and consistent icon/chevron patterns. Designed a spinner/loading state component and applied variants + prototype interactions to show feedback (loading/active states) and smoother user flows."
     ],
     "image": "/img/Learn@RP.png",
     "link": "https://www.figma.com/design/r94pEDlWEu3tiGDRiGIxCO/CA2?node-id=15-12&t=Nd4d3ByTEjrHtgcB-1"
   },
   {
     "title": "Income Expense Tracker",
-    "categories": ["Mobile Development"],
+    "slug": "income-expense-tracker",
+    "categories": [
+      "Mobile Development"
+    ],
     "stack": "React Native / Expo / JavaScript",
-    "role": "Team frontend developer",
+    "role": "Individual Developer",
     "focus": "Mobile App Development",
     "desc": "An app to track personal income and expenses.",
     "more": "Personal finance tracker with clear category breakdowns.",
     "writeup": [
-      "Concept: A lightweight tracker for daily income and expenses.",
-      "Planning: Mapped quick-entry flow and category breakdowns.",
-      "Development: Built the UI with minimal steps and clear summaries."
+      "Concept: A mobile finance tracker that supports daily logging of income and expenses and provides clear category-based insights.",
+      "Planning: Collaborated on transaction structure (amount, type, category, date, notes) and mapped the user flow to minimise taps for adding and reviewing records.",
+      "Development: As the team frontend developer, I implemented the React Native/Expo UI, created reusable components (transaction cards, category chips, summary tiles), and ensured the data is presented in a clear and consistent way across the dashboard and history views."
     ],
     "image": "/img/IncomeTracker.png",
     "link": "https://github.com/C346-AY2025-002/c346-ca1-Lionelsem?tab=readme-ov-file",
     "fit": "contain"
   },
-    {
-    "title": "Study Tracker",
-    "categories": ["Web Development"],
-    "stack": "React Native / JavaScript",
-    "role": "Team frontend developer",
-    "focus": "Web App Development",
-    "desc": "An app to track study sessions and progress.",
-    "more": "Study session tracker with reminders and progress visualization.",
-    "writeup": [
-      "Concept: A lightweight tracker for daily study sessions.",
-      "Planning: Mapped quick-entry flow and category breakdowns.",
-      "Development: Built the UI with minimal steps and clear summaries."
-    ],
-    "image": "/img/StudyTracker.png",
-    "link": "https://github.com/SitiRaudhah123/C219_CA2_Team2",
-    "fit": "contain"
-  },
-      {
+  {
+  "title": "Study Tracker",
+  "slug": "study-tracker",
+  "categories": ["Web Development"],
+  "stack": "React / JavaScript + REST API",
+  "role": "Team frontend developer",
+  "focus": "API Integration / Full-Stack Fundamentals",
+  "desc": "A study tracker that logs sessions and displays progress using a backend API.",
+  "more": "API-driven study session tracker with CRUD features and progress summaries.",
+  "writeup": [
+    "Concept: Built a study tracker that allows users to record study sessions and monitor progress, with data managed through a backend API instead of hardcoding.",
+    "Planning: Applied C346 concepts by defining CRUD requirements and data fields (subject, duration, date, notes), then planned API endpoints and how the frontend would consume them in a clear flow.",
+    "Development: Integrated the React frontend with the backend REST API for create, read, update, and delete operations. Implemented API calls, handled responses/errors, and updated UI state so session lists and progress summaries refresh correctly after each action."
+  ],
+  "image": "/img/StudyTracker.png",
+  "link": "https://github.com/SitiRaudhah123/C219_CA2_Team2",
+  "fit": "contain"
+}
+  ,
+  {
     "title": "SkinCare Routine Tracker",
-    "categories": ["Mobile Development"],
+    "slug": "skincare-routine-tracker",
+    "categories": [
+      "Mobile Development"
+    ],
     "stack": "React Native / JavaScript",
     "role": "Team frontend developer",
     "focus": "Mobile App Development",
     "desc": "An app to track skincare routines and progress.",
     "more": "Skincare routine tracker with reminders and progress visualization.",
     "writeup": [
-      "Concept: A lightweight tracker for daily skincare routines.",
-      "Planning: Mapped quick-entry flow and category breakdowns.",
-      "Development: Built the UI with minimal steps and clear summaries."
+      "Concept: A mobile skincare tracker that helps users organise routines and record daily progress with an easy CRUD-based system.",
+      "Planning: Mapped the user journey to minimise steps for adding and updating routines, defined data fields (routine name, steps, frequency, notes), and planned key screens for management and tracking.",
+      "Development: As the team frontend developer, I built the React Native UI and connected CRUD actions to AsyncStorage (create/read/update/delete). This ensures the user’s routine data is saved locally and loads correctly each time the app is opened."
     ],
-    "image": "/img/SkinCareTracker.png",
+    "image": "/img/Skincaretracker.png",
     "link": "https://github.com/C346-AY2025-002/c346-lesson12-Lionelsem",
     "fit": "contain"
+  },
+  {
+    "title": "3D NameCard",
+    "slug": "3D NameCard",
+    "categories": [
+      "Game Development"
+    ],
+    "stack": "Unity",
+    "role": "Individual Developer",
+    "focus": "3D Modeling and Animation",
+    "desc": "A 3D NameCard application built in Unity.",
+    "writeup": [
+      "This project is an AR-based 3D name card created using Unity.",
+      "The main purpose is to enhance a normal name card by allowing users to scan it and view my name in 3D through AR, making the experience more modern and interactive.",
+      "I designed the name card in Adobe Illustrator and exported the design assets for use in Unity.",
+      "After importing the design into Unity, I set up the AR environment and positioned the 3D name so it appears clearly above the card when viewed through the camera.",
+      "This project shows my ability to integrate design tools with real-time development software to create an engaging digital experience."
+    ],
+    "image": "/img/Namecardfront.png",
+    "fit": "contain",
+    "images": [
+      "/img/Namecardfront.png",
+      "/img/Namecardback.png"
+    ],
+    "video": "/img/Namecard.mp4"
   }
 ]

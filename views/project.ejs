@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <a href="/#home" aria-label="Go to home">
+            <img src="/img/Logo.png" alt="Logo" class="logo-img" />
+          </a>
+        </div>
+        <nav class="main-nav">
+          <a href="/#about">About</a>
+          <a href="/#projects">Projects</a>
+          <a href="/#contact">Contact</a>
+          <a href="/certificates">Certificates</a>
+        </nav>
+      </div>
+    </header>
+
+    <% if (!project) { %>
+      <section class="section project-detail-section">
+        <div class="container">
+          <h1 class="section-title">Project not found</h1>
+          <p class="section-subtitle">That project page does not exist yet.</p>
+          <a class="btn primary-btn" href="/#projects">Back to projects</a>
+        </div>
+      </section>
+    <% } else { %>
+      <section class="section project-detail-section">
+        <div class="container">
+          <a class="btn outline-btn project-detail-back" href="/#projects">Back to projects</a>
+
+          <div class="project-detail-grid">
+            <div class="project-detail-media">
+              <% if (project.images && project.images.length) { %>
+                <div class="project-detail-gallery">
+                  <% project.images.forEach((img, idx) => { %>
+                    <img
+                      src="<%= img %>"
+                      alt="<%= project.title %> preview <%= idx + 1 %>"
+                      class="<%= project.fit === "contain" ? "fit-contain" : "" %>"
+                    />
+                  <% }) %>
+                </div>
+              <% } else { %>
+                <img
+                  src="<%= project.image %>"
+                  alt="<%= project.title %> preview"
+                  class="<%= project.fit === "contain" ? "fit-contain" : "" %>"
+                />
+              <% } %>
+            </div>
+
+            <div class="project-detail-content">
+              <h1 class="project-detail-title"><%= project.title %></h1>
+              <p class="project-detail-desc"><%= project.more || project.desc %></p>
+
+              <div class="project-detail-tags">
+                <% (project.categories || []).forEach((cat) => { %>
+                  <span class="project-tag"><%= cat %></span>
+                <% }) %>
+              </div>
+
+              <div class="project-detail-meta">
+                <div class="project-detail-row">
+                  <span class="proj-label">Stack</span>
+                  <span class="proj-value"><%= project.stack %></span>
+                </div>
+                <div class="project-detail-row">
+                  <span class="proj-label">Role</span>
+                  <span class="proj-value"><%= project.role || "Contributor" %></span>
+                </div>
+                <div class="project-detail-row">
+                  <span class="proj-label">Focus</span>
+                  <span class="proj-value"><%= project.focus %></span>
+                </div>
+              </div>
+
+              <div class="project-detail-actions">
+                <% if (project.link) { %>
+                  <a class="btn primary-btn" href="<%= project.link %>" target="_blank" rel="noopener">
+                    Open Project
+                  </a>
+                <% } else { %>
+                  <span class="project-link-disabled">No public link</span>
+                <% } %>
+              </div>
+            </div>
+          </div>
+
+          <% const videoSrc = project.video && project.video.src ? project.video.src : project.video; %>
+          <% const videoType = project.video && project.video.type ? project.video.type : (typeof project.video === "string" ? "mp4" : null); %>
+          <% if (videoSrc) { %>
+            <div class="project-detail-video">
+              <% if (videoType === "youtube") { %>
+                <iframe
+                  src="<%= videoSrc %>"
+                  title="<%= project.title %> video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              <% } else if (videoType === "mp4") { %>
+                <video src="<%= videoSrc %>" controls playsinline></video>
+              <% } %>
+            </div>
+          <% } %>
+
+          <% if (project.writeup && project.writeup.length) { %>
+            <div class="project-detail-writeup">
+              <h2>Writeup</h2>
+              <ul>
+                <% project.writeup.forEach((item) => { %>
+                  <li><%= item %></li>
+                <% }) %>
+              </ul>
+            </div>
+          <% } %>
+        </div>
+      </section>
+    <% } %>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; <%= new Date().getFullYear() %> Lionel</p>
+      </div>
+    </footer>
+  </body>
+</html>

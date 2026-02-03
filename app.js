@@ -68,11 +68,23 @@ app.set("views", path.join(__dirname, "views"));
 
 const projectsPath = path.join(__dirname, "public", "data", "projects.json");
 
+function slugify(text) {
+  return String(text || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}
+
 function readProjects() {
   try {
     const raw = fs.readFileSync(projectsPath, "utf8");
     const data = JSON.parse(raw);
-    return Array.isArray(data) ? data : [];
+    if (!Array.isArray(data)) return [];
+    return data.map((project) => ({
+      ...project,
+      slug: project.slug || slugify(project.title),
+    }));
   } catch (err) {
     console.error("Projects JSON read error:", err);
     return [];
@@ -104,6 +116,20 @@ app.get("/", (req, res) => {
     latestCertificates,
     certCount: certificates.length,
     projectCount: readProjects().length,
+  });
+});
+
+app.get("/projects/:slug", (req, res) => {
+  const projects = readProjects();
+  const project = projects.find((item) => item.slug === req.params.slug);
+
+  if (!project) {
+    res.status(404);
+  }
+
+  res.render("project", {
+    title: project ? `${project.title} â€” Project` : "Project not found",
+    project,
   });
 });
 
