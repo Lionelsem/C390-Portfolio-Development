@@ -486,8 +486,7 @@ body.is-loading {
 .about-layout {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 80px;
+  gap: 20px;
   max-width: 1050px;
   margin: 0 auto;
 }
@@ -1708,3 +1707,4 @@ body.is-loading {
     width: 220px;
   }
 }
+
